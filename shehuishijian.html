@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>社会实践 · 范豪昕</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Helvetica Neue", Arial, sans-serif;
+        }
+
+        body {
+            background: #0f1419;
+            color: rgba(255, 255, 255, 0.88);
+        }
+
+        /* ================= 导航栏 ================= */
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 76px;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(8px);
+            z-index: 100;
+        }
+
+        .nav a {
+            text-decoration: none;
+            font-size: 19px;
+            letter-spacing: 4px;
+            color: rgba(255, 255, 255, 0.75);
+            padding: 10px 22px;
+            border-radius: 28px;
+            transition: 0.3s;
+        }
+
+        .nav .active {
+            background: rgba(255, 255, 255, 0.18);
+            color: #fff;
+        }
+
+        /* ================= 页面主体 ================= */
+        .page {
+            padding-top: 140px;
+            padding-bottom: 120px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 90px;
+        }
+
+        .page-title h1 {
+            font-size: 48px;
+            font-weight: 300;
+            letter-spacing: 10px;
+        }
+
+        .page-title p {
+            font-size: 15px;
+            letter-spacing: 6px;
+            color: rgba(255, 255, 255, 0.55);
+        }
+
+        /* ================= 模块 ================= */
+        .section {
+            margin-bottom: 120px;
+        }
+
+        .section h2 {
+            font-size: 32px;
+            letter-spacing: 6px;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .activity {
+            margin-bottom: 100px;
+        }
+
+        .activity h3 {
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        .desc {
+            max-width: 800px;
+            margin: 0 auto 28px;
+            text-align: center;
+            line-height: 1.9;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* ================= 轮播（统一比例） ================= */
+        .carousel {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .carousel-track {
+            display: flex;
+            height: 100%;
+            transition: transform 0.8s ease;
+        }
+
+        .carousel-track img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            flex-shrink: 0;
+            transition: transform 0.4s ease;
+        }
+
+        .carousel:hover img {
+            transform: scale(1.05);
+        }
+
+        /* ================= 箭头 ================= */
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 48px;
+            height: 48px;
+            background: rgba(0, 0, 0, 0.45);
+            color: #fff;
+            font-size: 32px;
+            border: none;
+            cursor: pointer;
+            border-radius: 6px;
+        }
+
+        .arrow.left {
+            left: 14px;
+        }
+
+        .arrow.right {
+            right: 14px;
+        }
+
+        /* ================= 志愿服务 ================= */
+        .volunteer-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 70px;
+        }
+
+        .volunteer-grid img {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+            border-radius: 16px;
+        }
+
+        /* ================= 证书专用 ================= */
+        .certificate-carousel {
+            aspect-ratio: 4 / 3;
+            background: #f5f5f5;
+        }
+
+        .certificate-carousel img {
+            object-fit: contain;
+            padding: 20px;
+        }
+
+        /* ================= 证书轮播（专用） ================= */
+        .certificate-carousel {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            height: 520px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.06);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .certificate-carousel .carousel-track {
+            display: flex;
+            height: 100%;
+            transition: transform 0.8s ease;
+        }
+
+        .certificate-carousel img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            /* ⭐ 核心：完整展示证书 */
+            padding: 24px;
+            /* 留白，让证书更高级 */
+            background: #fdfdfd;
+            /* 模拟证书纸张 */
+            border-radius: 14px;
+            flex-shrink: 0;
+            transition: transform 0.4s ease;
+        }
+
+        .certificate-carousel:hover img {
+            transform: scale(1.04);
+        }
+
+        /* 移动端适配 */
+        @media (max-width: 768px) {
+            .certificate-carousel {
+                height: 420px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 导航 -->
+    <nav class="nav">
+        <a href="index.html">首页</a>
+        <a href="基本信息.html">基本信息</a>
+        <a href="实习经历.html">实习经历</a>
+        <a href="社会实践.html" class="active">社会实践</a>
+        <a href="获奖经历.html">获奖经历</a>
+    </nav>
+
+    <div class="page">
+        <div class="container">
+
+            <div class="page-title">
+                <h1>社会实践</h1>
+                <p>SOCIAL PRACTICE</p>
+            </div>
+
+            <!-- 学校活动 -->
+            <div class="section">
+                <h2>学校活动</h2>
+
+                <div class="activity">
+                    <h3>《寻心》心理剧</h3>
+                    <p class="desc">
+                        参演心理情景剧《寻心》，该作品荣获大连市首届大学生心理情景剧大赛特等奖，
+                        在排练与演出过程中提升了舞台表达能力与团队协作意识。
+                    </p>
+                    <div class="carousel">
+                        <button class="arrow left">‹</button>
+                        <div class="carousel-track">
+                            <img src="zhaopian\shehuishijian\xlj1.jpg">
+                            <img src="zhaopian\shehuishijian\xlj2.jpg">
+                            <img src="zhaopian\shehuishijian\xlj3.jpg">
+                        </div>
+                        <button class="arrow right">›</button>
+                    </div>
+                </div>
+
+                <div class="activity">
+                    <h3>《蔚蓝之路》校史剧</h3>
+                    <p class="desc">
+                        参演校史剧《蔚蓝之路》，累计演出与排练时长超 300 小时，
+                        该剧在辽宁省大学生戏剧节中获最佳剧目奖，个人获优秀演员奖。
+                    </p>
+                    <div class="carousel">
+                        <button class="arrow left">‹</button>
+                        <div class="carousel-track">
+                            <img src="zhaopian\shehuishijian\wlzl1.jpg">
+                            <img src="zhaopian\shehuishijian\wlzl2.jpg">
+                            <img src="zhaopian\shehuishijian\wlzl3.jpg">
+                            <img src="zhaopian\shehuishijian\wlzl4.jpg">
+                        </div>
+                        <button class="arrow right">›</button>
+                    </div>
+                </div>
+
+                <div class="activity">
+                    <h3>学生代表大会</h3>
+                    <p class="desc">
+                        作为信息工程学院本科生代表，参加大连海洋大学第七次学生代表大会，
+                        参与学生事务讨论，增强公共事务参与意识。
+                    </p>
+                    <div class="carousel">
+                        <div class="carousel-track">
+                            <img src="zhaopian\shehuishijian\xd.jpg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 志愿服务 -->
+            <div class="section">
+                <h2>志愿服务</h2>
+
+                <p class="volunteer-text">
+                    积极参与志愿服务活动，2024–2025 学年累计参与近 20 项志愿服务项目，
+                    多次获得“优秀志愿者”荣誉称号。服务内容涵盖赛事保障、公益活动、
+                    环保行动及公共文化服务。
+                </p>
+
+                <div class="volunteer-grid">
+                    <img src="zhaopian\shehuishijian\1.jpg">
+                    <img src="zhaopian\shehuishijian\2.png">
+                    <img src="zhaopian\shehuishijian\3.png">
+                </div>
+
+                <h3 style="text-align:center;margin-bottom:20px;">志愿服务证书</h3>
+
+                <div class="certificate-carousel carousel">
+                    <button class="arrow left">‹</button>
+                    <div class="carousel-track">
+                        <img src="zhaopian\shehuishijian\z1.png">
+                        <img src="zhaopian\shehuishijian\z2.png">
+                        <img src="zhaopian\shehuishijian\z3.png">
+                        <img src="zhaopian\shehuishijian\z4.png">
+                        <img src="zhaopian\shehuishijian\z5.png">
+                    </div>
+                    <button class="arrow right">›</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ================= JS：自动轮播 + 悬停控制 ================= -->
+    <script>
+        document.querySelectorAll('.carousel').forEach(carousel => {
+            const track = carousel.querySelector('.carousel-track');
+            const images = track.children;
+            const left = carousel.querySelector('.left');
+            const right = carousel.querySelector('.right');
+
+            let index = 0;
+            let timer = null;
+
+            if (images.length <= 1) {
+                if (left) left.style.display = 'none';
+                if (right) right.style.display = 'none';
+                return;
+            }
+
+            const startAuto = () => {
+                timer = setInterval(() => {
+                    index = (index + 1) % images.length;
+                    track.style.transform = `translateX(-${index * 100}%)`;
+                }, 3000);
+            };
+
+            const stopAuto = () => clearInterval(timer);
+
+            startAuto();
+
+            carousel.addEventListener('mouseenter', stopAuto);
+            carousel.addEventListener('mouseleave', startAuto);
+
+            left.addEventListener('click', () => {
+                index = (index - 1 + images.length) % images.length;
+                track.style.transform = `translateX(-${index * 100}%)`;
+            });
+
+            right.addEventListener('click', () => {
+                index = (index + 1) % images.length;
+                track.style.transform = `translateX(-${index * 100}%)`;
+            });
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>实习经历 · 范豪昕</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Helvetica Neue", Arial, sans-serif;
+        }
+
+        body {
+            background: #0f1419;
+            color: rgba(255, 255, 255, 0.88);
+        }
+
+        /* ================= 导航栏（统一） ================= */
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 76px;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(8px);
+            z-index: 100;
+        }
+
+        .nav a {
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 500;
+            letter-spacing: 4px;
+            color: rgba(255, 255, 255, 0.75);
+            padding: 10px 20px;
+            border-radius: 26px;
+            transition: all 0.3s ease;
+        }
+
+        .nav a:hover {
+            color: #fff;
+        }
+
+        .nav .active {
+            background: rgba(255, 255, 255, 0.18);
+            color: #fff;
+        }
+
+        /* ================= 页面主体 ================= */
+        .page {
+            padding-top: 130px;
+            padding-left: 6vw;
+            padding-right: 6vw;
+            padding-bottom: 100px;
+        }
+
+        .page-title {
+            margin-bottom: 80px;
+        }
+
+        .page-title h1 {
+            font-size: 48px;
+            font-weight: 300;
+            letter-spacing: 10px;
+            margin-bottom: 14px;
+        }
+
+        .page-title p {
+            font-size: 15px;
+            letter-spacing: 5px;
+            color: rgba(255, 255, 255, 0.55);
+        }
+
+        /* ================= 时间轴 ================= */
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            padding-left: 40px;
+        }
+
+        /* 中轴线 */
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 6px;
+            top: 0;
+            width: 2px;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 80px;
+            padding-left: 40px;
+        }
+
+        /* 时间点 */
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -2px;
+            top: 6px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.85);
+        }
+
+        .time {
+            font-size: 15px;
+            letter-spacing: 3px;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 10px;
+        }
+
+        .company {
+            font-size: 22px;
+            font-weight: 500;
+            margin-bottom: 6px;
+        }
+
+        .role {
+            font-size: 16px;
+            letter-spacing: 2px;
+            color: rgba(255, 255, 255, 0.65);
+            margin-bottom: 16px;
+        }
+
+        .desc {
+            font-size: 17px;
+            line-height: 1.9;
+            color: rgba(255, 255, 255, 0.75);
+        }
+
+        .desc li {
+            margin-bottom: 8px;
+        }
+
+        /* ================= 响应式 ================= */
+        @media (max-width: 768px) {
+            .timeline {
+                padding-left: 20px;
+            }
+
+            .timeline-item {
+                padding-left: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 导航栏 -->
+    <nav class="nav">
+        <a href="首页.html">首页</a>
+        <a href="基本信息.html">基本信息</a>
+        <a href="实习经历.html" class="active">实习经历</a>
+        <a href="社会实践.html">社会实践</a>
+        <a href="获奖经历.html">获奖经历</a>
+    </nav>
+
+    <!-- 页面内容 -->
+    <div class="page">
+        <div class="page-title">
+            <h1>实习经历</h1>
+            <p>INTERNSHIP EXPERIENCE</p>
+        </div>
+
+        <!-- 时间轴 -->
+        <div class="timeline">
+
+            <div class="timeline-item">
+                <div class="time">2024.07 - 2024.08</div>
+                <div class="company">某某科技有限公司</div>
+                <div class="role">前端开发实习生</div>
+                <ul class="desc">
+                    <li>协助完成企业官网及内部系统页面的前端开发与样式调整。</li>
+                    <li>参与 HTML、CSS、JavaScript 页面结构与交互效果的实现。</li>
+                    <li>在实习过程中提升了代码规范意识与实际项目协作能力。</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item">
+                <div class="time">2023.07 - 2023.08</div>
+                <div class="company">某某信息技术有限公司</div>
+                <div class="role">技术支持 / 实习生</div>
+                <ul class="desc">
+                    <li>协助进行系统测试与基础问题排查，整理相关技术文档。</li>
+                    <li>参与日常技术支持工作，提升了沟通能力与问题解决能力。</li>
+                    <li>对信息系统的整体运行流程有了更直观的认识。</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
