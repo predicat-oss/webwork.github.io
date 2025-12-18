@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>获奖经历 · 范豪昕</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Helvetica Neue", Arial, sans-serif;
+        }
+
+        body {
+            background: #0f1419;
+            color: rgba(255, 255, 255, 0.88);
+        }
+
+        /* ===== 导航栏 ===== */
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 76px;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(8px);
+            z-index: 100;
+        }
+
+        .nav a {
+            text-decoration: none;
+            font-size: 19px;
+            letter-spacing: 4px;
+            color: rgba(255, 255, 255, 0.7);
+            padding: 10px 22px;
+            border-radius: 28px;
+            transition: 0.3s;
+        }
+
+        .nav a:hover {
+            color: #fff;
+        }
+
+        .nav .active {
+            background: rgba(255, 255, 255, 0.18);
+            color: #fff;
+        }
+
+        /* ===== 页面结构 ===== */
+        .page {
+            padding-top: 140px;
+            padding-bottom: 120px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 90px;
+        }
+
+        .page-title h1 {
+            font-size: 48px;
+            font-weight: 300;
+            letter-spacing: 10px;
+            margin-bottom: 14px;
+        }
+
+        .page-title p {
+            font-size: 15px;
+            letter-spacing: 6px;
+            color: rgba(255, 255, 255, 0.55);
+        }
+
+        .intro {
+            text-align: center;
+            line-height: 2;
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.75);
+            margin-bottom: 80px;
+        }
+
+        /* ===== 模块 ===== */
+        .section {
+            margin-bottom: 90px;
+        }
+
+        .section h2 {
+            font-size: 26px;
+            letter-spacing: 6px;
+            margin-bottom: 36px;
+            text-align: center;
+        }
+
+        .list {
+            max-width: 860px;
+            margin: 0 auto;
+        }
+
+        .item {
+            padding: 26px 28px;
+            margin-bottom: 22px;
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 16px;
+            line-height: 1.9;
+        }
+
+        .item strong {
+            color: #ffffff;
+        }
+
+        /* ===== 证书展示（全新形式） ===== */
+        .certificate-wall {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 28px;
+        }
+
+        .cert-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 18px;
+            padding: 14px;
+            cursor: pointer;
+            transition: 0.35s ease;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .cert-card img {
+            width: 100%;
+            height: 260px;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+
+        /* ===== 大图预览 ===== */
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.85);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 999;
+        }
+
+        .lightbox img {
+            max-width: 80%;
+            max-height: 85%;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 导航 -->
+    <nav class="nav">
+        <a href="index.html">首页</a>
+        <a href="jibenxinxi.html">基本信息</a>
+        <a href="shixijingli.html">实习经历</a>
+        <a href="shehuishijian.html">社会实践</a>
+        <a href="huojiangjingli.html" class="active">获奖经历</a>
+    </nav>
+
+    <div class="page">
+        <div class="container">
+
+            <div class="page-title">
+                <h1>获奖经历</h1>
+                <p>AWARDS & HONORS</p>
+            </div>
+
+            <p class="intro">
+                在校期间注重专业学习与实践能力并重，积极参与学科竞赛、文体活动及志愿服务评选，
+                在省级、市级及校级多项评选中取得一定成绩。
+            </p>
+
+            <!-- 学科竞赛 -->
+            <div class="section">
+                <h2>学科竞赛与专业能力</h2>
+                <div class="list">
+                    <div class="item">
+                        <strong>中软国际大数据挑战赛（辽宁省赛区） · 省级一等奖</strong><br>
+                        围绕真实数据场景开展分析与建模，参与数据处理与方案实现，提升了大数据工程实践能力。
+                    </div>
+                    <div class="item">
+                        <strong>中软国际 AI 挑战赛（辽宁省赛区） · 省级一等奖</strong><br>
+                        参与算法设计与模型优化，强化了人工智能技术应用与问题建模能力。
+                    </div>
+                </div>
+            </div>
+
+            <!-- 文体与综合素质 -->
+            <div class="section">
+                <h2>文体活动与综合素质</h2>
+                <div class="list">
+                    <div class="item">
+                        <strong>辽宁省大学生戏剧节</strong><br>
+                        参演校史剧《蔚蓝之路》，作品荣获最佳剧目奖，个人获评优秀演员奖。
+                    </div>
+                    <div class="item">
+                        <strong>大连市大学生心理情景剧大赛</strong><br>
+                        参演心理情景剧《寻心》，作品荣获特等奖。
+                    </div>
+                </div>
+            </div>
+
+            <!-- 志愿服务 -->
+            <div class="section">
+                <h2>志愿服务与荣誉表彰</h2>
+                <div class="list">
+                    <div class="item">
+                        <strong>优秀志愿者</strong><br>
+                        在多项校内外志愿服务活动中表现积极，服务内容涵盖赛事保障、公益活动及公共文化服务。
+                    </div>
+                    <div class="item">
+                        <strong>校级综合评优</strong><br>
+                        在思想表现、学习态度与集体活动参与等方面综合表现良好，获得多项校级荣誉。
+                    </div>
+                </div>
+            </div>
+
+            <!-- 证书展示 -->
+            <div class="section">
+                <h2>获奖证书展示</h2>
+
+                <div class="certificate-wall">
+                    <div class="cert-card">
+                        <img src="zhaopian\huojiangjingli\1.jpg" alt="获奖证书">
+                    </div>
+                    <div class="cert-card">
+                        <img src="zhaopian\huojiangjingli\2.jpg" alt="获奖证书">
+                    </div>
+                   
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 大图预览 -->
+    <div class="lightbox" id="lightbox">
+        <img src="" alt="证书大图">
+    </div>
+
+    <script>
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImg = lightbox.querySelector("img");
+
+        document.querySelectorAll(".cert-card img").forEach(img => {
+            img.addEventListener("click", () => {
+                lightboxImg.src = img.src;
+                lightbox.style.display = "flex";
+            });
+        });
+
+        lightbox.addEventListener("click", () => {
+            lightbox.style.display = "none";
+        });
+    </script>
+
+</body>
+</html>
