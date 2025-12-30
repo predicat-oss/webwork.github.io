@@ -13,11 +13,33 @@
             box-sizing: border-box;
             font-family: "Helvetica Neue", Arial, sans-serif;
         }
-
+ /* ===== 虚化背景（来自 index） ===== */
         body {
+            position: relative;
             background: #0f1419;
             color: rgba(255, 255, 255, 0.88);
+            overflow-x: hidden;
         }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background: url("zhaopian/shouye/shouye.jpg") no-repeat center / cover;
+            filter: blur(14px);
+            transform: scale(1.1);
+            z-index: -2;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 20, 25, 0.75);
+            z-index: -1;
+        }
+
+     
 
         /* ================= 导航栏 ================= */
         .nav {
@@ -144,6 +166,7 @@
 </head>
 
 <body>
+    
 
     <!-- 导航栏 -->
     <nav class="nav">
